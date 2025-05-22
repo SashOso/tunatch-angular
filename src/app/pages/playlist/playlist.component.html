@@ -10,31 +10,65 @@
         </div>
     </section>
     <section class="playlist-songs">
-        <table>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>TITLE</th>
-                    <th>ALBUM</th>
-                    <th>DURATION</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr 
-                *ngFor="let song of songs; let i = index" [class.active]="i === song_index" (click)="selectSong(i)">
-                    <td>{{(i+1)}}</td>
-                    <td class="title-item">
-                        <img [src]="song.image_path ? apiUrl + '/' + song.image_path : '/assets/img/song.png'"  alt="">
-                        <span class="title">{{song?.title || '-'}}</span>
-                        <span class="artist">{{ song?.artist?.name || '-' }}</span>
-                    </td>
-                    <td>{{ song?.album?.title || '-' }}</td>
-                    <td>--:--:--</td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="song-list">
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>TITLE</th>
+                        <th>ALBUM</th>
+                        <th>DURATION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr 
+                    *ngFor="let song of songs; let i = index" [class.active]="i === song_index" (click)="selectSong(i)">
+                        <td>{{(i+1)}}</td>
+                        <td class="title-item">
+                            <img [src]="song.image_path ? apiUrl + '/' + song.image_path : '/assets/img/song.png'"  alt="">
+                            <span class="title">{{song?.title || '-'}}</span>
+                            <span class="artist">{{ song?.artist?.name || '-' }}</span>
+                        </td>
+                        <td>{{ song?.album?.title || '-' }}</td>
+                        <td>{{formatTime(0)}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <video #player></video>
     </section>
-    <section>
-        <input type="range">
+    <section class="player-controls">
+        <div class="track-info">
+            NAME
+        </div>
+        <div class="playback-controls">
+            <div class="control-buttons">
+                <button (click)="previous()">
+                    <img src="/assets/icons/previous.svg" alt="">
+                </button>
+                <button class="play-btn" (click)="play()">
+                    <img *ngIf="paused" src="/assets/icons/play.svg" alt="">
+                    <img *ngIf="!paused" src="/assets/icons/pause.svg" alt="">
+                </button>
+                <button (click)="next()">
+                    <img src="/assets/icons/next.svg" alt="">
+                </button>
+            </div>
+            <div class="progress-bar">
+                <small>{{formatTime(currentTime)}}</small>
+                <input type="range" [max]="duration" [value]="currentTime " (input)="onSeek($event)">
+                <small>{{formatTime(duration)}}</small>
+            </div>
+        </div>
+        <div class="volume-control">
+            <button (click)="mute()">
+                <img *ngIf="muted" src="/assets/icons/volume-x.svg" alt="">
+                <img *ngIf="!muted && volume === 0" src="/assets/icons/volume-none.svg" alt="">
+                <img *ngIf="!muted && volume > 0 && volume <= 0.5" src="/assets/icons/volume-low.svg" alt="">
+                <img *ngIf="!muted && volume > 0.5" src="/assets/icons/volume-high.svg" alt="">
+            </button>
+            <input type="range" [value]="volume*100" (input)="onVolumeChange($event)">
+        </div>
     </section>
+    
 </div>

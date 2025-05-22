@@ -57,7 +57,9 @@ nav{
             overflow: hidden;
         }
         .icon{
-            filter: invert();
+            /*filter: invert();*/
+            color: red;
+            fill: red;
             padding: 5px;
             display: flex;
             font-size: 16px;
