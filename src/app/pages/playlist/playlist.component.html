@@ -1,7 +1,7 @@
 <div class="playlist">
     <section class="playlist-header">
         <div class="playlist-cover">
-            <img [src]="image ? apiUrl + '/' + image : '/assets/img/playlist.png'" alt="">
+            <img [src]="image ? apiUrl + image : '/assets/img/playlist.png'" alt="">
         </div>
         <div  class="playlist-details" >
             <small>PLAYLIST</small>
@@ -25,7 +25,7 @@
                     *ngFor="let song of songs; let i = index" [class.active]="i === song_index" (click)="selectSong(i)">
                         <td>{{(i+1)}}</td>
                         <td class="title-item">
-                            <img [src]="song.image_path ? apiUrl + '/' + song.image_path : '/assets/img/song.png'"  alt="">
+                            <img [src]="song.image_path ? apiUrl + song.image_path : '/assets/img/song.png'"  alt="">
                             <span class="title">{{song?.title || '-'}}</span>
                             <span class="artist">{{ song?.artist?.name || '-' }}</span>
                         </td>
@@ -35,7 +35,7 @@
                 </tbody>
             </table>
         </div>
-        <video #player></video>
+        <video #player controls></video>
     </section>
     <section class="player-controls">
         <div class="track-info">

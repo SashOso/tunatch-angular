@@ -72,14 +72,14 @@ export class PlaylistComponent implements OnInit {
     const song = this.songs[index];
     const file_path = song.file_path;
 
-    const media = this.playerRef.nativeElement;//le quite la ruta de api
-    media.src = file_path;
+    const media = this.playerRef.nativeElement;
+    media.src = file_path;//le quite la ruta de api
     media.load();
 
     this.paused = false;
     media.volume = this.volume;
     media.muted = this.muted;
-
+    
     media.onloadedmetadata = () => {
       media.play().catch(err => console.warn('Play error:', err));
     };

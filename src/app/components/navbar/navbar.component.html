@@ -37,7 +37,7 @@
         <!----------Playlists---------------->
         <a *ngFor="let playlist of playlist_list" routerLink="/playlist/{{playlist.id}}" class="menu-link" routerLinkActive="active">
             <div class="menu-link-icon">
-                <img [src]="playlist.image_path ? apiUrl + '/' + playlist.image_path : '/assets/img/playlist.png'" alt="">
+                <img [src]="playlist.image_path ? apiUrl  + playlist.image_path : '/assets/img/playlist.png'" alt="">
             </div>
             <span>{{playlist.name}}</span>
         </a>
