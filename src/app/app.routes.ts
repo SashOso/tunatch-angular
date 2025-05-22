@@ -13,7 +13,6 @@ import { RegisterComponent } from './pages/register/register.component';
 import { UserComponent } from './pages/user/user.component';
 import { AlbumListComponent } from './pages/album-list/album-list.component';
 import { ArtistListComponent } from './pages/artist-list/artist-list.component';
-import { PlaylistListComponent } from './pages/playlist-list/playlist-list.component';
 import { SongListComponent } from './pages/song-list/song-list.component';
 
 export const routes: Routes = [
@@ -29,7 +28,6 @@ export const routes: Routes = [
     { path: 'artist-register', component: ArtistRegisterComponent },
     { path: 'artist-register/:id', component: ArtistRegisterComponent },
 
-    { path: 'playlists', component: PlaylistListComponent },
     { path: 'playlist/:id', component: PlaylistComponent },
     { path: 'playlist-register', component: PlaylistRegisterComponent },
     { path: 'playlist-register/:id', component: PlaylistRegisterComponent },
