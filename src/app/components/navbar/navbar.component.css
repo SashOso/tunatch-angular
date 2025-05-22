@@ -1,0 +1,92 @@
+nav{
+    background-color: black;
+    width: 200px;
+    height: 100%;
+    display: grid;
+    grid-template-rows: max-content max-content 1fr max-content;
+    overflow: auto;
+
+    &>section{
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    #logo{
+        height: 80px;
+        padding: 20px;
+    }
+    
+    .section-title{
+        display: block;
+        color: rgba(255, 255, 255, 0.5);
+        font-weight: 200;
+        padding: 10px;
+        white-space: nowrap;
+        overflow: hidden;   
+        text-overflow: ellipsis;
+    }
+    .create-playlist{
+        .menu-link-icon{
+            img{
+                background-color: rgba(255, 255, 255, 0.5);
+                color: black;
+            }
+        }
+    }
+}
+
+
+
+.menu-link{
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.5);
+    .menu-link-icon{
+        width: 40px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        *{
+            display: block;
+            width: 25px;
+            height: 25px;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        .icon{
+            filter: invert();
+            padding: 5px;
+            display: flex;
+            font-size: 16px;
+            align-items: center;
+            justify-content: center;
+        }
+        img{
+            object-fit: cover;
+        }
+    }
+    span{
+        white-space: nowrap;
+        overflow: hidden;   
+        text-overflow: ellipsis;
+        padding-right: 5px;
+    }
+    &:hover{
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+    &.active {
+        background-color: rgba(255, 255, 255, 0.05);
+        color: white;
+        position: relative;
+        &::after{
+            content: " ";
+            background-color: #33c444;
+            width: 4px;
+            height: 100%;
+            position: absolute;
+        }
+    }
+}

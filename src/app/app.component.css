@@ -1,0 +1,14 @@
+.container{
+    height: 100dvh;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    overflow: hidden;
+    aside{
+        height: 100%;
+        overflow: hidden;
+    }
+    main{
+        height: 100%;
+        overflow: hidden;
+    }
+}

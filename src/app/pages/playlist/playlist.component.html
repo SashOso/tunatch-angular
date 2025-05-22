@@ -1,1 +1,33 @@
-<p>playlist works!</p>
+<div class="playlist">
+    <div class="playlist-header">
+        <div class="playlist-cover">
+            <img src="{{image}}" alt="">
+        </div>
+        <div  class="playlist-details" >
+            <small>PLAYLIST</small>
+            <span class="playlist-title">{{title}}</span>
+            <span class="playlist-owner">By {{owner}}</span>
+        </div>
+    </div>
+    <div class="playlist-songs">
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Album</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr 
+                *ngFor="let song of songs; let i = index" [class.active]="i === song_index" (click)="selectSong(i)">
+                    <td>{{(i+1)}}</td>
+                    <td>{{song?.title || '-'}}</td>
+                    <td>{{ song?.album?.title || '-' }}</td>
+                    <td>--:--:--</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

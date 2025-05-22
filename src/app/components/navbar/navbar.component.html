@@ -1,0 +1,56 @@
+<nav>
+    <img id="logo" src="/img/logo.png" alt="">
+    <section  class="menu-section">
+        <a routerLink="/" class="menu-link">
+            <div class="menu-link-icon">
+                <img class="icon" src="/icon/home-svgrepo-com.svg" alt="">
+            </div>
+            <span>Home</span>
+        </a>
+        <a routerLink="/albums" class="menu-link">
+            <div class="menu-link-icon">
+                <img class="icon" src="/icon/album-svgrepo-com.svg" alt="">
+            </div>
+            <span>Albums</span>
+        </a>
+        <a routerLink="/artists" class="menu-link">
+            <div class="menu-link-icon">
+                <img class="icon" src="/icon/user-svgrepo-com.svg" alt="">
+            </div>
+            <span>Artist</span>
+        </a>
+    </section>
+    <section class="playlist-section">
+        <span class="section-title">PLAYLIST</span>
+        <a routerLink="/playlist-register" class="menu-link create-playlist">
+            <div class="menu-link-icon">
+                <img class="icon" class="icon" src="/icon/plus-svgrepo-com.svg" alt="">
+            </div>
+            <span> Create Playlist</span>
+        </a>
+        <div id="user-playlists">
+            <!----------Playlists---------------->
+            <a *ngFor="let playlist of playlist_list" routerLink="/playlist/{{playlist.id}}" class="menu-link" >
+                <div class="menu-link-icon">
+                    <img src="{{apiUrl}}/{{playlist.image_path}}" alt="">
+                </div>
+                <span>{{playlist.name}}</span>
+            </a>
+            <!------------------------------>
+        </div>
+    </section>
+    <section>
+        <a href="/login" class="menu-link">
+            <div class="menu-link-icon">
+                <img class="icon" src="/icon/logout-svgrepo-com (1).svg" alt="">
+            </div>
+            <span>Logout</span>
+        </a>
+        <a href="/configuration" class="menu-link" id="configuration-link">
+            <div class="menu-link-icon">
+                <img class="icon"src="/icon/setting-svgrepo-com.svg" alt="">
+            </div>
+            <span>Configuration</span>
+        </a>
+    </section>
+</nav>
