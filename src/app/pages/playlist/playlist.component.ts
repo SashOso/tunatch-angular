@@ -86,6 +86,11 @@ export class PlaylistComponent implements OnInit {
   }
 
   play(): void {
+    if(this.song_index==-1){
+      if(this.songs.length>0){
+        this.selectSong(0)
+      }
+    }
     this.paused = !this.paused;
     const media = this.playerRef.nativeElement;
 
