@@ -1,5 +1,5 @@
 <nav>
-    <img id="logo" src="/img/logo.png" alt="">
+    <img id="logo" src="/assets/img/logo.png" alt="">
     <section>
         <a routerLink="/" class="menu-link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
             <div class="menu-link-icon">
@@ -12,6 +12,12 @@
                 <img class="icon" src="/icon/album-svgrepo-com.svg" alt="">
             </div>
             <span>Albums</span>
+        </a>
+        <a routerLink="/songs" class="menu-link" routerLinkActive="active">
+            <div class="menu-link-icon">
+                <img class="icon" src="/icon/music-1005-svgrepo-com.svg" alt="">
+            </div>
+            <span>Songs</span>
         </a>
         <a routerLink="/artists" class="menu-link" routerLinkActive="active">
             <div class="menu-link-icon">
@@ -31,7 +37,7 @@
         <!----------Playlists---------------->
         <a *ngFor="let playlist of playlist_list" routerLink="/playlist/{{playlist.id}}" class="menu-link" routerLinkActive="active">
             <div class="menu-link-icon">
-                <img src="{{apiUrl}}/{{playlist.image_path}}" alt="">
+                <img [src]="playlist.image_path ? apiUrl + '/' + playlist.image_path : '/assets/img/playlist.png'" alt="">
             </div>
             <span>{{playlist.name}}</span>
         </a>
@@ -44,11 +50,11 @@
             </div>
             <span>Logout</span>
         </a>
-        <a routerLink="/configuration" class="menu-link" id="configuration-link" routerLinkActive="active">
+        <a routerLink="/settings" class="menu-link" id="configuration-link" routerLinkActive="active">
             <div class="menu-link-icon">
                 <img class="icon"src="/icon/setting-svgrepo-com.svg" alt="">
             </div>
-            <span>Configuration</span>
+            <span>Ajustes</span>
         </a>
     </section>
 </nav>

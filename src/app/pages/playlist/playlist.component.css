@@ -4,7 +4,7 @@
     width: 100%;
     height: 100%;
     display: grid;
-    grid-template-rows: max-content 1fr;
+    grid-template-rows: max-content 1fr max-content;
     overflow: hidden;
     .playlist-header{
         display: grid;
@@ -18,6 +18,7 @@
             border-radius: 5px;
             overflow: hidden;
             img{
+                object-fit: cover;
                 width: 100%;
                 height: 100%;
             }
@@ -55,6 +56,7 @@
             }
             tbody{
                 tr{
+                    transition: .5s;
                     cursor: pointer;
                     td{
                         padding: 10px;
@@ -64,11 +66,37 @@
                     }
                     &.active{
                         color: #33c444;
-                        font-weight: bolder;
                     }
                 }
             }
         }
     }
     
+}
+
+
+.title-item{
+    display: grid;
+    grid-template-areas:
+        "img title"
+        "img artist";
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+    gap: 5px;
+    img{
+        display: block;
+        width: 30px;
+        height: 30px;
+        grid-area: img;
+        object-fit: cover;
+        overflow: hidden;
+    }
+    .title{
+        grid-area: title;
+        font-weight: bold;
+    }
+    .artist{
+        grid-area: artist;
+        font-size: 12px;
+    }
 }

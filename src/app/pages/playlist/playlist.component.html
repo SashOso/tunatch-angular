@@ -1,33 +1,40 @@
 <div class="playlist">
-    <div class="playlist-header">
+    <section class="playlist-header">
         <div class="playlist-cover">
-            <img src="{{image}}" alt="">
+            <img [src]="image ? apiUrl + '/' + image : '/assets/img/playlist.png'" alt="">
         </div>
         <div  class="playlist-details" >
             <small>PLAYLIST</small>
             <span class="playlist-title">{{title}}</span>
             <span class="playlist-owner">By {{owner}}</span>
         </div>
-    </div>
-    <div class="playlist-songs">
+    </section>
+    <section class="playlist-songs">
         <table>
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>Title</th>
-                    <th>Album</th>
-                    <th>Duration</th>
+                    <th>TITLE</th>
+                    <th>ALBUM</th>
+                    <th>DURATION</th>
                 </tr>
             </thead>
             <tbody>
                 <tr 
                 *ngFor="let song of songs; let i = index" [class.active]="i === song_index" (click)="selectSong(i)">
                     <td>{{(i+1)}}</td>
-                    <td>{{song?.title || '-'}}</td>
+                    <td class="title-item">
+                        <img [src]="song.image_path ? apiUrl + '/' + song.image_path : '/assets/img/song.png'"  alt="">
+                        <span class="title">{{song?.title || '-'}}</span>
+                        <span class="artist">{{ song?.artist?.name || '-' }}</span>
+                    </td>
                     <td>{{ song?.album?.title || '-' }}</td>
                     <td>--:--:--</td>
                 </tr>
             </tbody>
         </table>
-    </div>
+    </section>
+    <section>
+        <input type="range">
+    </section>
 </div>

@@ -14,6 +14,7 @@ import { UserComponent } from './pages/user/user.component';
 import { AlbumListComponent } from './pages/album-list/album-list.component';
 import { ArtistListComponent } from './pages/artist-list/artist-list.component';
 import { SongListComponent } from './pages/song-list/song-list.component';
+import { SettingsComponent } from './pages/settings/settings.component';
 
 export const routes: Routes = [
     { path: '', component: HomeComponent , pathMatch: 'full' },
@@ -39,5 +40,6 @@ export const routes: Routes = [
 
     { path: 'user', component: UserComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'regiter', component: RegisterComponent },
+    { path: 'register', component: RegisterComponent },
+    { path: 'settings', component: SettingsComponent}
 ];

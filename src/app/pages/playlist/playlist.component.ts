@@ -36,7 +36,7 @@ export class PlaylistComponent implements OnInit {
     this.playlistService.getById(this.id).subscribe({
       next: (data: Playlist) => {
         this.title = data.name || 'Sin título';
-        this.image = data.image_path ? `${this.apiUrl}/${data.image_path}` : '/img/playlist_icon.jpg';
+        this.image = data.image_path || '';
         this.owner = data.user?.username || 'Desconocido';
         this.songs = data.songs || [];
       },
